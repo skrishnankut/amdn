@@ -45,7 +45,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <finalName>fat-${project.artifactId}-${project.version}</finalName>
+                    <finalName>ATT-${project.artifactId}-${project.version}</finalName>
                 </configuration>
             </plugin>
         </plugins>

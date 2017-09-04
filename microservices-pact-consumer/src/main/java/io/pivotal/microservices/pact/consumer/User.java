@@ -1,13 +1,13 @@
 package io.pivotal.microservices.pact.consumer;
 
-public class Foo {
+public class User {
 
     private int value;
 
-    public Foo() {
+    public User() {
     }
 
-    public Foo(int value) {
+    public User(int value) {
         this.value = value;
     }
 
@@ -24,9 +24,9 @@ public class Foo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Foo foo = (Foo) o;
+        User user = (User) o;
 
-        if (value != foo.value) return false;
+        if (value != user.value) return false;
 
         return true;
     }

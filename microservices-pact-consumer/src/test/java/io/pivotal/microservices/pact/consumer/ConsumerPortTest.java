@@ -11,30 +11,36 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
-
+/**
+ * PACT TestCase
+ * 
+ * @author skrishnankut
+ */
 public class ConsumerPortTest {
 
     @Rule
-    public PactProviderRule rule = new PactProviderRule("Foo_Provider", this);
+    public PactProviderRule rule = new PactProviderRule("Service_Provider_ATT", this);
 
-    @Pact(provider="Foo_Provider", consumer="Foo_Consumer")
+    @Pact(provider="Service_Provider_ATT", consumer="Service_Consumer_DXC")
     public PactFragment createFragment(PactDslWithProvider builder) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json;charset=UTF-8");
 
-        return builder.uponReceiving("a request for Foos")
-                .path("/foos")
+        return builder.uponReceiving("A request for Provider Service")
+                .path("/userService")
                 .method("GET")
-
                 .willRespondWith()
                 .headers(headers)
                 .status(200)
                 .body("[{\"value\":42}, {\"value\":100}]").toFragment();
+             
     }
 
     @Test
-    @PactVerification("Foo_Provider")
+    @PactVerification("Service_Provider_ATT")
     public void runTest() {
-        assertEquals(new ConsumerPort(rule.getConfig().url()).foos(), Arrays.asList(new Foo(42), new Foo(100)));
+    	System.out.println("Inside @PactVerification :"+rule.getConfig().url());
+    	System.out.println("Inside @PactVerification ::"+new ConsumerPort(rule.getConfig().url()).users());
+        assertEquals(new ConsumerPort(rule.getConfig().url()).users(), Arrays.asList(new User(42), new User(100)));
     }
 }

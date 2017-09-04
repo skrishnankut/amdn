@@ -39,24 +39,64 @@
 
     <build>
         <plugins>
+<!--         	<plugin>
+        		<groupId>au.com.dius</groupId>
+        		<artifactId>pact-jvm-provider-maven_2.11</artifactId>
+        		<version>3.5.3</version>
+      		</plugin> -->
             <plugin>
                 <groupId>au.com.dius</groupId>
                 <artifactId>pact-jvm-provider-maven_2.11</artifactId>
-                <version>3.2.2</version>
+                <version>3.5.3</version>
                 <configuration>
                     <pactBrokerUrl></pactBrokerUrl>
                     <serviceProviders>
                         <serviceProvider>
-                            <name>Foo_Provider</name>
+                            <name>Service_Provider_ATT</name>
                             <protocol>http</protocol>
                             <host>localhost</host>
-                            <port>8080</port>
+                            <port>8089</port>
                             <path>/</path>
                             <pactFileDirectory>target/pacts</pactFileDirectory>
                         </serviceProvider>
+                         <serviceProvider>
+                            <name>ATT-MockProvider</name>
+                            <protocol>http</protocol>
+                            <host>localhost</host>
+                            <port>8089</port>
+                            <path>/</path>
+				           <consumers>
+				            <consumer>
+				              <name>DXC-MockConsumer</name>
+				              <pactFile>target/pacts/DXC-MockConsumer-ATT-MockProvider.json</pactFile>
+				            </consumer>
+				          </consumers>                               
+                            
+                        </serviceProvider>                         
+ <!--                        <serviceProvider>
+                            <name>test_provider</name>
+                            <protocol>http</protocol>
+                            <host>localhost</host>
+                            <port>3333</port>
+                            <path>/</path>
+                            <pactFileDirectory>target/pacts</pactFileDirectory> 
+                        </serviceProvider> -->
                     </serviceProviders>
                 </configuration>
             </plugin>
+			<plugin>
+			    <groupId>au.com.dius</groupId>
+			    <artifactId>pact-jvm-provider-maven_2.11</artifactId>
+			    <version>3.5.3</version>
+			    <configuration>
+			      <pactDirectory>target/pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
+			      <pactBrokerUrl>https://csc.pact.dius.com.au</pactBrokerUrl>
+			      <pactBrokerUsername>6O1sY1m85a8YRTC8nvkty3ot9IAXO</pactBrokerUsername>
+			      <pactBrokerPassword>VbwPE2nO8WMNCvBWePmkxQcaFwyf5</pactBrokerPassword>
+			      <projectVersion>1.0.101</projectVersion> <!-- Defaults to ${project.version} -->
+			      <trimSnapshot>true</trimSnapshot> <!-- Defaults to  false -->
+			    </configuration>
+			</plugin>				
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -68,7 +108,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <finalName>fat-${project.artifactId}-${project.version}</finalName>
+                    <finalName>att-${project.artifactId}-${project.version}</finalName>
                 </configuration>
             </plugin>
         </plugins>

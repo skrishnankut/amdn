@@ -19,14 +19,14 @@ public class Application {
     @Autowired
     ConsumerPort consumerPort;
 
-    @RequestMapping("/foos")
-    public List<Foo> foos() {
-        return consumerPort.foos();
+    @RequestMapping("/userService")
+    public List<User> users() {
+        return consumerPort.users();
     }
 
     @RequestMapping("/")
     public String hello() {
-        return "Hello World!";
+        return "Welcome PACT Testing World!";
     }
 
     public static void main(String[] args) {

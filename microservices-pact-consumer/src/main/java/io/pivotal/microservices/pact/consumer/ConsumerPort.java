@@ -21,8 +21,8 @@ public class ConsumerPort {
         this.restTemplate = new RestTemplate();
     }
 
-    public List<Foo> foos() {
-        ParameterizedTypeReference<List<Foo>> responseType = new ParameterizedTypeReference<List<Foo>>() {};
-        return restTemplate.exchange(url + "/foos", HttpMethod.GET, null, responseType).getBody();
+    public List<User> users() {
+        ParameterizedTypeReference<List<User>> responseType = new ParameterizedTypeReference<List<User>>() {};
+        return restTemplate.exchange(url + "/userService", HttpMethod.GET, null, responseType).getBody();
     }
 }

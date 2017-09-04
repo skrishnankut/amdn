@@ -1,10 +1,10 @@
 package io.pivotal.microservices.pact.provider;
 
-public class Foo {
+public class User {
 
     private int value;
 
-    public Foo(int value) {
+    public User(int value) {
         this.value = value;
     }
 
