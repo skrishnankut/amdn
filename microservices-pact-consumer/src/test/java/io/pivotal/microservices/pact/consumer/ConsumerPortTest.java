@@ -39,7 +39,7 @@ public class ConsumerPortTest {
     @Test
     @PactVerification("Service_Provider_ATT")
     public void runTest() {
-    	System.out.println("Inside @PactVerification :"+rule.getConfig().url());
+    	System.out.println("Inside @PactVerification ::"+rule.getConfig().url());
     	System.out.println("Inside @PactVerification ::"+new ConsumerPort(rule.getConfig().url()).users());
         assertEquals(new ConsumerPort(rule.getConfig().url()).users(), Arrays.asList(new User(42), new User(100)));
     }

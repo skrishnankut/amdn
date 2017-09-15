@@ -39,11 +39,6 @@
 
     <build>
         <plugins>
-<!--         	<plugin>
-        		<groupId>au.com.dius</groupId>
-        		<artifactId>pact-jvm-provider-maven_2.11</artifactId>
-        		<version>3.5.3</version>
-      		</plugin> -->
             <plugin>
                 <groupId>au.com.dius</groupId>
                 <artifactId>pact-jvm-provider-maven_2.11</artifactId>
@@ -59,29 +54,7 @@
                             <path>/</path>
                             <pactFileDirectory>target/pacts</pactFileDirectory>
                         </serviceProvider>
-                         <serviceProvider>
-                            <name>ATT-MockProvider</name>
-                            <protocol>http</protocol>
-                            <host>localhost</host>
-                            <port>8089</port>
-                            <path>/</path>
-				           <consumers>
-				            <consumer>
-				              <name>DXC-MockConsumer</name>
-				              <pactFile>target/pacts/DXC-MockConsumer-ATT-MockProvider.json</pactFile>
-				            </consumer>
-				          </consumers>                               
-                            
-                        </serviceProvider>                         
- <!--                        <serviceProvider>
-                            <name>test_provider</name>
-                            <protocol>http</protocol>
-                            <host>localhost</host>
-                            <port>3333</port>
-                            <path>/</path>
-                            <pactFileDirectory>target/pacts</pactFileDirectory> 
-                        </serviceProvider> -->
-                    </serviceProviders>
+                     </serviceProviders>
                 </configuration>
             </plugin>
 			<plugin>
@@ -93,7 +66,7 @@
 			      <pactBrokerUrl>https://csc.pact.dius.com.au</pactBrokerUrl>
 			      <pactBrokerUsername>6O1sY1m85a8YRTC8nvkty3ot9IAXO</pactBrokerUsername>
 			      <pactBrokerPassword>VbwPE2nO8WMNCvBWePmkxQcaFwyf5</pactBrokerPassword>
-			      <projectVersion>1.0.101</projectVersion> <!-- Defaults to ${project.version} -->
+			      <projectVersion>1.0.201</projectVersion> <!-- Defaults to ${project.version} -->
 			      <trimSnapshot>true</trimSnapshot> <!-- Defaults to  false -->
 			    </configuration>
 			</plugin>				

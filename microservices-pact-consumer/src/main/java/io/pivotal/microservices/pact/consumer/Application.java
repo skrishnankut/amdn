@@ -26,7 +26,7 @@ public class Application {
 
     @RequestMapping("/")
     public String hello() {
-        return "Welcome PACT Testing World!";
+        return "Welcome DXC-PACT Testing World!";
     }
 
     public static void main(String[] args) {
